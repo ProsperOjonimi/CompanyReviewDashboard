@@ -3,7 +3,9 @@ Company Review Dashboard
 ⚙️ How to Run the Project
 	•	Download the ZIP and extract it, or clone the repo:
   git clone https://github.com/prosperOjonimi/CompanyReviewDashboard.git
-cd company-review-dashboard
+  
+cd CompanyReviewDashboard
+
 Open index.html in your browser (use a live server for API requests).
 
 🚀 What I Built and Why
