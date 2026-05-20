@@ -1,88 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script defer src="js/script.js"></script>
-    <title>Company Review Dashboard</title>
-  </head>
-  <body>
-    <main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <title>Company Review Dashboard</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">ReviewBoard</h1>
+      <p class="tagline">Search company ratings and reviews from Trustpilot</p>
+    </div>
+  </header>
+
+  <main>
     <div class="search-bar">
-    <input type="text" id="companyInput" placeholder="Search for a company...">
-    <button id="searchBtn">Search</button>
-  </div>
-
-  <div class="cards-container" id="results">
-    <div class="company-card">
-  <div class="card-header">
-    <h2>BestBuy</h2>
-    <button class="favorite-btn">★</button>
-  </div>
-  <div class="card-body">
-    <div class="rating">
-      <span class="stars">★★★★☆</span>
-      <span class="score">4.2 / 5</span>
+      <input type="text" id="companyInput" placeholder="Search for a company..." />
+      <button id="searchBtn">Search</button>
     </div>
-    <p>Reviews: 1245</p>
-  </div>
-</div>
- <div class="company-card">
-  <div class="card-header">
-    <h2>BestBuy</h2>
-    <button class="favorite-btn">★</button>
-  </div>
-  <div class="card-body">
-    <div class="rating">
-      <span class="stars">★★★★☆</span>
-      <span class="score">4.2 / 5</span>
-    </div>
-    <p>Reviews: 1245</p>
-  </div>
-</div>
 
-
- <div class="company-card">
-  <div class="card-header">
-    <h2>BestBuy</h2>
-    <button class="favorite-btn">★</button>
-  </div>
-  <div class="card-body">
-    <div class="rating">
-      <span class="stars">★★★★☆</span>
-      <span class="score">4.2 / 5</span>
+    <div class="results-header">
+      <h2>Results</h2>
+      <span class="results-count" id="resultsCount"></span>
     </div>
-    <p>Reviews: 1245</p>
-  </div>
-</div>
- <div class="company-card">
-  <div class="card-header">
-    <h2>BestBuy</h2>
-    <button class="favorite-btn">★</button>
-  </div>
-  <div class="card-body">
-    <div class="rating">
-      <span class="stars">★★★★☆</span>
-      <span class="score">4.2 / 5</span>
+    <div class="cards-container" id="results">
+      <div class="company-card">
+        <div class="card-header">
+          <h3 class="company-name">Apple</h3>
+          <button class="favorite-btn" title="Save to favorites">★</button>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="score">4.5 / 5</span>
+          </div>
+          <p class="review-count">2,340 reviews</p>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="card-header">
+          <h3 class="company-name">Nike</h3>
+          <button class="favorite-btn" title="Save to favorites">★</button>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="score">3.8 / 5</span>
+          </div>
+          <p class="review-count">1,876 reviews</p>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="card-header">
+          <h3 class="company-name">Spotify</h3>
+          <button class="favorite-btn" title="Save to favorites">★</button>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="score">4.1 / 5</span>
+          </div>
+          <p class="review-count">3,102 reviews</p>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="card-header">
+          <h3 class="company-name">Airbnb</h3>
+          <button class="favorite-btn" title="Save to favorites">★</button>
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="score">4.3 / 5</span>
+          </div>
+          <p class="review-count">5,678 reviews</p>
+        </div>
+      </div>
     </div>
-    <p>Reviews: 1245</p>
-  </div>
-</div>
 
-  </div>
+    <div class="section-divider"></div>
+
+    <div class="favorites-header">
+      <h2>Favorites</h2>
+    </div>
+    <div class="cards-container" id="favorites"></div>
   </main>
-<div class="reviews-container hidden">
-  <h3 >Reviews <button class="close-button">X</button></h3>
 
-  <!-- Example review 1 -->
-  <div class="review-card">
-    <div class="review-rating">★★★★☆</div>
-    <p class="review-comment">Great service, fast delivery!</p>
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Reviews</h3>
+        <button class="close-button" id="closeModal">✕</button>
+      </div>
+      <div class="modal-body" id="reviewsList"></div>
+      <div class="modal-empty" id="reviewsEmpty">
+        <p>No reviews found for this company.</p>
+      </div>
+    </div>
   </div>
-</div>
-  <h2 class="favorites-header">Favorites</h2>
-  <div class="cards-container" id="favorites"></div>
-</div>
-  </body>
+
+  <div class="spinner hidden" id="spinner">
+    <div class="spinner-ring"></div>
+  </div>
+</body>
 </html>
